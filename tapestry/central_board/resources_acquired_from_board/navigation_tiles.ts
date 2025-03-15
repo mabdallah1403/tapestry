@@ -9,7 +9,8 @@ export class NavigationTile {
 }
 
 export class NavigationTiles {
-    tiles: NavigationTile[] = [];
+    private tiles: NavigationTile[] = [];
+
     constructor() {
         const temporaryTiles: NavigationTile[] = [];
         temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.COINS)));
@@ -18,13 +19,20 @@ export class NavigationTiles {
         temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.CULTURE)));
         Math.random() < 0.5 ? this.tiles = temporaryTiles : this.tiles = temporaryTiles.reverse();
     }
+
     public playerTakesTile(player: Player): void {
         const tile = this.tiles.pop();
         if (tile) {
             player.addNavigationTile(tile);
         }
         else {
-            console.log("No more tiles to take"); // May want to create a new tile deck instead?
+            const temporaryTiles: NavigationTile[] = [];
+            temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.COINS)));
+            temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.WORKERS)));
+            temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.FOOD)));
+            temporaryTiles.push(new NavigationTile(new Resource(ResourceLabel.CULTURE)));
+            Math.random() < 0.5 ? this.tiles = temporaryTiles : this.tiles = temporaryTiles.reverse();
         }
     }
+    
 } 
