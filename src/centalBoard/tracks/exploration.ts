@@ -1,18 +1,8 @@
-import { allowedTrackPositions } from "../track_interface";
-enum explorationTrackOutput {
-    NAVIGATION_TILE = "NAVIGATION_TILE",
-    PLACE_NAV_TILE = "PLACE_NAV_TILE",
-    BROWN_HOUSE = "BROWN_HOUSE",
-    TAPESTRY_CARD = "TAPESTRY_CARD",
-    VP_FROM_CONQUER = "VP_FROM_CONQUER",
-    VP_FROM_BROWN_HOUSE = "VP_FROM_BROWN_HOUSE",
-    FIVE_VP = "FIVE_VP",
-    VP_FROM_TECH_TRACK = "VP_FROM_TECH_TRACK",
-    SPACE_TILE = "SPACE_TILE",
-    PLACE_SPACE_TILE = "PLACE_SPACE_TILE",
-    PLACE_NAV_TILE_OR_BROWN_HOUSE = "PLACE_NAV_TILE_OR_BROWN_HOUSE",
-}
-class ExplorationTrack {
+import { Track } from ".";
+import { explorationTrackOutput } from "../enums";
+import { allowedTrackPositions } from "../types";
+
+class ExplorationTrack implements Track {
     invoke(currentPosition: allowedTrackPositions): explorationTrackOutput[] {
         switch (currentPosition){
             case 0:
@@ -45,6 +35,8 @@ class ExplorationTrack {
             case 12:
                 // Do something
                 break;
+            default:
+                return []
         }
     }
 }

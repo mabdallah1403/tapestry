@@ -1,5 +1,5 @@
 import { NavigationTile } from "../central_board/resources_acquired_from_board/navigation_tiles";
-import { Resource, ResourceLabel } from "./resources";
+import { Resource, ResourceLabel } from "../resources";
 
 export enum PlayerColor {
     RED = "Red",

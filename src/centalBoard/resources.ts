@@ -1,11 +1,7 @@
-export enum ResourceLabel {
-    COINS = "Coins",
-    WORKERS = "Workers",
-    FOOD = "Food",
-    CULTURE = "Culture",
-}
+import { ResourceLabel } from "./enums";
+
 export class Resource {
-    private value = 0;
+    private value = 1;
     private readonly max = 8;
     private readonly label: ResourceLabel;
 
