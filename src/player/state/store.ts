@@ -59,16 +59,16 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
                         return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.PLACE_NAV_TILE];
                     case 7:
                         return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.PLACE_NAV_TILE];
-                } // finish
+                } // finish @mahdi
 
             }
-            if (track === chosenTrackEnum.SCIENCE_TRACK_CHOSEN) { // finish
+            if (track === chosenTrackEnum.SCIENCE_TRACK_CHOSEN) { // finish @mahdi
                 state.position.science += 1;
             }
-            if (track === chosenTrackEnum.MILITARY_TRACK_CHOSEN) { // finish
+            if (track === chosenTrackEnum.MILITARY_TRACK_CHOSEN) { // finish @mahdi
                 state.position.military += 1;
             }
-            if (track === chosenTrackEnum.TECHNOLOGY_TRACK_CHOSEN) { // finish
+            if (track === chosenTrackEnum.TECHNOLOGY_TRACK_CHOSEN) { // finish @mahdi
                 state.position.technology += 1;
             }
         }
