@@ -1,6 +1,7 @@
 import { allowedTrackPositions } from "../types"
 import { Resource } from "../../centalBoard/resources"
 import { navigationTileType } from "../../centalBoard/types"
+import { chosenTrackEnum } from "../enums"
 
 export interface PlayerState {
     id: string
@@ -13,15 +14,17 @@ export interface PlayerState {
 
     position: {
         exploration: allowedTrackPositions
-        // TODO: mahdi add rest
-        
+        science: allowedTrackPositions
+        military: allowedTrackPositions
+        technology: allowedTrackPositions
     }
     
     init: () => void
 
     pushTile: (tile: navigationTileType) => void
 
-    // Mahdi advanceTrack: (type: "exploration" | ...) => void
+    advanceTrack: (track: chosenTrackEnum) => void
+
 }
 
 export const selector = (state: PlayerState) => ({

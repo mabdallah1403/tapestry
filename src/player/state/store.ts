@@ -5,6 +5,7 @@ import { baseState } from "../../state/store";
 
 // third party
 import { create } from "zustand"
+import { explorationTrackOutput } from "../enums";
 
 export const usePlayerStore = create<PlayerState>((set, get) => {
     return {
@@ -22,7 +23,10 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
 
         position: {
             exploration: 0,
-        }, // Mahdi implement
+            science: 0,
+            military: 0,
+            technology: 0,
+        },
 
         init: () => {
             const state = get();
@@ -31,8 +35,19 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
         pushTile: (tile) => {
             const state = get();
             state.tiles.push(tile);
-        }
+        },
 
-        // TODO: mahdi implement
+        advanceTrack: (type) => {
+            const state = get();
+            if (type === explorationTrackOutput) {
+                state.position.exploration += 1;
+            } else if (type === "science") {
+                state.position.science += 1;
+            } else if (type === "military") {
+                state.position.military += 1;
+            } else if (type === "technology") {
+                state.position.technology
+            }
+        }
     }}
 )
