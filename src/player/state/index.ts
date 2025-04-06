@@ -7,6 +7,7 @@ export interface PlayerState {
     id: string
     name: string
     color: string
+    VP: number
 
     tiles: navigationTileType[]
 
@@ -32,6 +33,7 @@ export const selector = (state: PlayerState) => ({
     name: state.name,
     color: state.color,
     tiles: state.tiles,
+    VP: state.VP,
 
     init: state.init,
 

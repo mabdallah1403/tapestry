@@ -12,6 +12,7 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
         id: "", 
         name: "",
         color: "",
+        VP: 0,
 
         tiles: [],
         resources: [
