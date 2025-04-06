@@ -2,10 +2,10 @@ import { PlayerState } from ".";
 import { ResourceLabel } from "../../centalBoard/enums";
 import { Resource } from "../../centalBoard/resources";
 import { baseState } from "../../state/store";
+import { chosenTrackEnum, explorationTrackOutputEnum } from "../enums";
 
 // third party
 import { create } from "zustand"
-import { explorationTrackOutput } from "../enums";
 
 export const usePlayerStore = create<PlayerState>((set, get) => {
     return {
@@ -36,18 +36,23 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
             const state = get();
             state.tiles.push(tile);
         },
+        
 
-        advanceTrack: (type) => {
+        advanceTrack: (track) => {
             const state = get();
-            if (type === explorationTrackOutput) {
+            if (track === chosenTrackEnum.EXPLORATION_TRACK_CHOSEN) {
                 state.position.exploration += 1;
-            } else if (type === "science") {
+            }
+            if (track === chosenTrackEnum.SCIENCE_TRACK_CHOSEN) {
                 state.position.science += 1;
-            } else if (type === "military") {
+            }
+            if (track === chosenTrackEnum.MILITARY_TRACK_CHOSEN) {
                 state.position.military += 1;
-            } else if (type === "technology") {
-                state.position.technology
+            }
+            if (track === chosenTrackEnum.TECHNOLOGY_TRACK_CHOSEN) {
+                state.position.technology += 1;
             }
         }
+        
     }}
 )
