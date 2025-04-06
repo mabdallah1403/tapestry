@@ -42,15 +42,33 @@ export const usePlayerStore = create<PlayerState>((set, get) => {
         advanceTrack: (track) => {
             const state = get();
             if (track === chosenTrackEnum.EXPLORATION_TRACK_CHOSEN) {
-                state.position.exploration += 1;
+                switch (state.position.exploration){
+                    case 0:
+                        return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.NAVIGATION_TILE];
+                    case 1:
+                        return [explorationTrackOutputEnum.PLACE_NAV_TILE, explorationTrackOutputEnum.TAPESTRY_CARD];
+                    case 2:
+                        return [explorationTrackOutputEnum.PLACE_NAV_TILE_OR_BROWN_HOUSE]
+                    case 3:
+                        return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.PLACE_NAV_TILE];
+                    case 4:
+                        return [explorationTrackOutputEnum.VP_FROM_CONQUER, explorationTrackOutputEnum.BROWN_HOUSE];
+                    case 5:
+                        return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.BROWN_HOUSE];
+                    case 6:
+                        return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.PLACE_NAV_TILE];
+                    case 7:
+                        return [explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.NAVIGATION_TILE, explorationTrackOutputEnum.PLACE_NAV_TILE];
+                } // finish
+
             }
-            if (track === chosenTrackEnum.SCIENCE_TRACK_CHOSEN) {
+            if (track === chosenTrackEnum.SCIENCE_TRACK_CHOSEN) { // finish
                 state.position.science += 1;
             }
-            if (track === chosenTrackEnum.MILITARY_TRACK_CHOSEN) {
+            if (track === chosenTrackEnum.MILITARY_TRACK_CHOSEN) { // finish
                 state.position.military += 1;
             }
-            if (track === chosenTrackEnum.TECHNOLOGY_TRACK_CHOSEN) {
+            if (track === chosenTrackEnum.TECHNOLOGY_TRACK_CHOSEN) { // finish
                 state.position.technology += 1;
             }
         }
